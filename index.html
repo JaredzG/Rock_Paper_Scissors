@@ -5,144 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        let userScore = 0;      //Variable to hold the user's score
-        let computerScore = 0;  //Variable to hold the computer's score
-        let userChoice;     //Variable to hold the user's choice
-        let computerChoice;     //Variable to hold the computer's choice
-        
-        //Function to prompt the user to make a choice, and then passes that choice to be parsed
-        function userMakeChoice() {
-            console.log('To play rock-paper-scissors, make a choice of rock, paper, or scissors.');
-            parseUserChoice(prompt('To play rock-paper-scissors, make a choice of rock, paper, or scissors.'));
-        }
-        
-        //Function to make the user's choice lowercase and check for its validity
-        function parseUserChoice(choice) {
-            choice = choice.toLowerCase(); //Make user input lowercase
-            switch(choice) {    //Compare user input to possible choices
-                case 'rock':    //Set userChoice to 'rock'
-                    userChoice = 'rock';
-                    break;
-                case 'paper':   //Set userChoice to 'paper'
-                    userChoice = 'paper';
-                    break;
-                case 'scissors':    //Set userChoice to 'scissors'
-                    userChoice = 'scissors';
-                    break;
-                default:    //Invalid choice made, so prompt again.
-                    console.log('You have made an invalid choice.\n');
-                    alert('You have made an invalid choice.\n');
-                    userMakeChoice();
-            }
-        }
-        
-        //Function to make the computer make a random choice
-        function computerPlay() {
-            computerChoice = Math.floor(Math.random() * 10);    //Computer's choice is a number from 0-9
-            switch (computerChoice) {   //Compare computer choice to possible values
-                case 0:     //Values 0-3 represent 'rock'
-                case 1:
-                case 2:
-                case 3:
-                    computerChoice = 'rock';
-                    break;
-                case 4:     //Values 4-6 represent 'paper'
-                case 5:
-                case 6:
-                    computerChoice = 'paper';
-                    break;
-                case 7:     //Values 7-9 represent 'scissors'
-                case 8:
-                case 9:
-                    computerChoice = 'scissors';    
-            }
-        }
-        
-        //Function to play a round of rock-paper-scissors, update the scores, and return the result
-        function playRound(playerSelection, computerSelection) {    //Takes both the user and computer choice
-            let choices = `You chose: ${userChoice}\nThe computer chose: ${computerChoice}\n`;
-            if (playerSelection === 'rock') {   //Compares the possible user choice of rock to the computer's choice
-                if (computerSelection === 'rock') {
-                    return `${choices}Tie! The score is still User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else if (computerSelection === 'paper') {
-                    computerScore++;
-                    return `${choices}Computer wins this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else {
-                    userScore++;
-                    return `${choices}You win this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-            }
-            else if (playerSelection === 'paper') {     //Compares the possible user choice of paper to the computer's choice
-                if (computerSelection === 'rock') {
-                    userScore++;
-                    return `${choices}You win this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else if (computerSelection === 'paper') {
-                    return `${choices}Tie! The score is still User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else {
-                    computerScore++;
-                    return `${choices}Computer wins this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-            }
-            else {      //Compares the possible user choice of paper to the computer's choice
-                if (computerSelection === 'rock') {
-                    computerScore++;
-                    return `${choices}Computer wins this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else if (computerSelection === 'paper') {
-                    userScore++;
-                    return `${choices}You win this round! The score is User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-                else {
-                    return `${choices}Tie! The score is still User: ${userScore} to Computer: ${computerScore}\n`;
-                }
-            }
-        }
-        
-        //Function to play the game for 5 rounds
-        function game() {
-            for (let i = 1; i <= 5; i++) {
-                console.log(`Round ${i}: `);
-                userMakeChoice();
-                computerPlay();
-                let winner = playRound(userChoice, computerChoice); 
-                console.log(winner);
-                alert(winner);
-            }
-        }
-
-        game();     //Play the game of rock-paper-scissors
-    </script>
+    <button type="button" id="rock">ROCK</button>
+    <button type="button" id="paper">PAPER</button>
+    <button type="button" id="scissors">SCISSORS</button>
+    <div class="results-display">
+        <p>Choose an option to play!</p>
+        <p class="result"></p>
+        <p class="round">Round: 0</p>
+        <p class="user-score">User Score:</p>
+        <p class="computer-score">Computer Score:</p>
+    </div>
 </body>
 </html>
-<!--
-    Understand:
-        Rock Paper Scissors game:
-            The user will input a choice and the computer will make a choice. The user's choice will
-            be compared against the computer's and a winner will be decided. There will be 5 rounds.
-            The scores will be recorded.
-    Plan:
-        Input: from User through console, case insensitive
-        Computer Input: Randomly generated
-        Output: The winner of each round, along with what choices were made will be presented.
-        Algorithm:
-            !   Use a game function to play the rounds of the game with a loop
-            !   Declare variables for player score and computer score
-            !   Prompt the user for their choice of rock, paper, or scissors
-                !   If the user input is invalid, prompt again
-            !   Parse the user input so that it is evaluated as case insensitive
-            !   Save user input in a variable
-            !   Get the computer's randomly generated choice through a function
-            !   Save the computer's choice in a variable
-            !   Pass the user's choice and the computer's choice to a function that will:
-                !   Decide the winner
-                !   Output the results
-                !   Update the score
-                !   Output the score
--->
