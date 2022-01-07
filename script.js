@@ -4,9 +4,9 @@ let userChoice; //Variable to hold the user's choice
 let computerChoice; //Variable to hold the computer's choice
 let rounds = 0;
 
-let rockButton = document.querySelector("#rock");
-let paperButton = document.querySelector("#paper");
-let scissorsButton = document.querySelector("#scissors");
+let rockButton = document.querySelector(".rock");
+let paperButton = document.querySelector(".paper");
+let scissorsButton = document.querySelector(".scissors");
 
 let resultPara = document.querySelector(".result");
 let roundPara = document.querySelector(".round");
