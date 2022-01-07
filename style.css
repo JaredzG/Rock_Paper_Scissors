@@ -1,0 +1,37 @@
+h1,
+h2,
+p,
+button {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgb(190, 190, 190);
+}
+
+h1 {
+  color: rgb(85, 231, 0);
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgb(104, 104, 104);
+}
+
+.user-score {
+  color: rgb(11, 161, 163);
+}
+
+.computer-score {
+  color: rgb(133, 120, 2);
+}
+
+h2,
+.copyright,
+.round,
+.result {
+  color: rgb(82, 52, 216);
+}
+
+button {
+  color: #fff;
+  background-color: #000;
+}
